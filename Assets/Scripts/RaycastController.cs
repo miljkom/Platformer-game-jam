@@ -4,9 +4,12 @@ using UnityEngine;
 [RequireComponent (typeof (BoxCollider2D))]
 public class RaycastController : MonoBehaviour
 {
+	public LayerMask collisionMask;
+
 	public const float skinWidth = .015f;
 	public int horizontalRayCount = 4;
 	public int verticalRayCount = 4;
+
 	[HideInInspector]
 	public float horizontalRaySpacing;
 	[HideInInspector]

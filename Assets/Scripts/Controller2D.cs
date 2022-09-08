@@ -4,9 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : RaycastController
 {
-
-	public LayerMask collisionMask;
-
 	float maxClimbAngle = 80;
 	float maxDescendAngle = 80;
 
@@ -15,7 +12,7 @@ public class Controller2D : RaycastController
 	public override void Start() {
 		base.Start();
 	}
-	public void Move(Vector3 velocity)
+	public void Move(Vector3 velocity, bool standingOnPlatform = false)
 	{
 		UpdateRaycastOrigins();
 		collisions.Reset();
@@ -35,6 +32,11 @@ public class Controller2D : RaycastController
 		}
 
 		transform.Translate(velocity);
+		
+		if(standingOnPlatform == true)
+        {
+			collisions.below = true;
+        }
 	}
 
 	void HorizontalCollisions(ref Vector3 velocity)
@@ -52,6 +54,10 @@ public class Controller2D : RaycastController
 
 			if (hit)
 			{
+				if(hit.distance == 0)
+                {
+					continue;
+                }
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
