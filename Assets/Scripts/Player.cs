@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 	Vector3 velocity;
 	float velocityXSmoothing;
 
-	public int extraJumps = 1;
+	public int extraJumps = 2;
 	float coyoteTime = 1.5f;
 	float coyoteTimeCounter;
 	public int jumpCount = 0;
