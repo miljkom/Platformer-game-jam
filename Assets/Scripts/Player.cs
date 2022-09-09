@@ -4,13 +4,12 @@ using System.Collections;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
-
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
-	float moveSpeed = 6;
+	float moveSpeed = 12;
 
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
@@ -25,6 +24,11 @@ public class Player : MonoBehaviour
 	float minJumpVelocity;
 	Vector3 velocity;
 	float velocityXSmoothing;
+
+	public int extraJumps = 1;
+	float coyoteTime = 1.5f;
+	float coyoteTimeCounter;
+	public int jumpCount = 0;
 
 	Controller2D controller;
 
@@ -49,18 +53,27 @@ public class Player : MonoBehaviour
 
 		controller.Move(velocity * Time.deltaTime, directionalInput);
 
+		if (controller.collisions.below)
+		{
+			coyoteTimeCounter = coyoteTime;
+			jumpCount = 0;
+        }
+        else
+        {
+			coyoteTimeCounter -= Time.deltaTime;
+        }
+
 		if (controller.collisions.above || controller.collisions.below)
 		{
 			if (controller.collisions.slidingDownMaxSlope)
 			{
 				velocity.y += controller.collisions.slopeNormal.y * -gravity * Time.deltaTime;
-            }
-            else
-            {
+			}
+			else
+			{
 				velocity.y = 0;
-            }
+			}
 		}
-
 	}
 
 	public void SetDirectionalInput(Vector2 input)
@@ -87,7 +100,7 @@ public class Player : MonoBehaviour
 				velocity.y = wallLeap.y;
 			}
 		}
-		if (controller.collisions.below)
+		if (coyoteTimeCounter > 0f || jumpCount < extraJumps)
 		{
 			if (controller.collisions.slidingDownMaxSlope)
 			{
@@ -102,6 +115,8 @@ public class Player : MonoBehaviour
 				velocity.y = maxJumpVelocity;
 
 			}
+			coyoteTimeCounter = 0f;
+			jumpCount++;
 		}
 	}
 	public void onJumpInputUp()
