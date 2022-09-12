@@ -56,10 +56,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Controller2D.cs" />
-    <Compile Include="Assets\Scripts\PlatformController.cs" />
-    <Compile Include="Assets\Scripts\RaycastController.cs" />
+    <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Environment\CountdownTimer.cs" />
+    <Compile Include="Assets\Scripts\Environment\PlatformController.cs" />
+    <Compile Include="Assets\Scripts\Player\RaycastController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Player\Controller2D.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\Environment\Shooting.cs" />
+    <Compile Include="Assets\Scripts\Environment\KeyScript.cs" />
+    <Compile Include="Assets\Scripts\Player\KnockBack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

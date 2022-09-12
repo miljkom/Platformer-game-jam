@@ -1,0 +1,5 @@
+sceneSetups:
+- path: C:/Users/Miljko/Documents/GitHub/Platformer game jam/Assets/Scenes/SampleScene.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
