@@ -6,7 +6,6 @@ public class PlatformController : RaycastController
 {
 
 	public LayerMask passengerMask;
-
 	public Vector3[] localWaypoints;
 	Vector3[] globalWaypoints;
 

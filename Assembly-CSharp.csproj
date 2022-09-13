@@ -61,11 +61,13 @@
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Environment\CountdownTimer.cs" />
     <Compile Include="Assets\Scripts\Environment\PlatformController.cs" />
-    <Compile Include="Assets\Scripts\Player\KnockBack.cs" />
     <Compile Include="Assets\Scripts\Player\RaycastController.cs" />
     <Compile Include="Assets\Scripts\Environment\KeyScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player\Controller2D.cs" />
+    <Compile Include="Assets\Scripts\Player\PunishTime.cs" />
+    <Compile Include="Assets\Scripts\Environment\PlatoformDmg.cs" />
+    <Compile Include="Assets\Scripts\Environment\GameOverPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
