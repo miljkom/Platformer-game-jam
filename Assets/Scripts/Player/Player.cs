@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 	public float timeToJumpApex = .4f;
 	public float accelerationTimeAirborne = .2f;
 	public float accelerationTimeGrounded = .1f;
-	public float moveSpeed = 25;
+	public float moveSpeed = 11;
 
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
@@ -57,11 +57,12 @@ public class Player : MonoBehaviour
 		float horizontalInput = Input.GetAxis("Horizontal");
 		if(horizontalInput > 0.01f)
         {
-			transform.localScale = new Vector3(-1, 1, 1);
+			transform.localScale = Vector3.one;
 		}
 		else if(horizontalInput < -0.01f)
         {
-			transform.localScale = Vector3.one;
+			transform.localScale = new Vector3(-1, 1, 1);
+			
 		}
 		anim.SetBool("Run", Input.GetAxis("Horizontal") != 0);
 		anim.SetBool("Grounded", grounded);
@@ -151,6 +152,7 @@ public class Player : MonoBehaviour
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
 		{
 			wallSliding = true;
+			jumpCount = 1;
 
 			if (velocity.y < -wallSlideSpeedMax)
 			{

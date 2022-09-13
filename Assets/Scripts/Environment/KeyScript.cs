@@ -15,15 +15,6 @@ public class KeyScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        ProcessCollision(collision.gameObject);
-    }
-    private void ProcessCollision(GameObject collider)
-    {
-        if (collider.CompareTag("Player"))
-        {
-            collider.GetComponent<KnockBack>().StartKnockBack();
-            //vreme
-        }
     }
 
 }

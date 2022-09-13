@@ -5,7 +5,6 @@ using UnityEngine;
 public class KnockBack : MonoBehaviour
 {
     [SerializeField] float knockBackForce = 15f;
-    [SerializeField] float knockBackLength = 1f;
 
 
     public void StartKnockBack()
